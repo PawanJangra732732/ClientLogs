@@ -1,0 +1,27 @@
+backend is working fine as of now
+frontend is working fine as of now
+logs are being created and displayed in the terminal
+terminal is scrollable and responsive
+terminal height is dynamic based on the viewport size
+terminal content is scrollable horizontally
+terminal content is displayed in a monospace font
+terminal header is compact and functional
+IMP : terminal logs are fetched and displayed correctly (but as of now it's appending at the top)
+terminal logs are updated in real-time
+terminal logs are displayed in a scrollable area
+
+TO DO:
+- Fix the terminal logs appending issue (should append at the bottom)
+- Get Server Names from backend and display them in the dropdown(dynamically)
+
+IMP :: also if any suggestions for the terminal logs component, please let me know
+
+run backend:
+    cd logs_backend
+    source venv/bin/activate    
+    python run.py
+
+run frontend:
+    cd logs_frontend
+    npm install
+    npm run dev

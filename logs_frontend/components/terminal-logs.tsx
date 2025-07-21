@@ -98,7 +98,7 @@ export function TerminalLogs({ logs, loading, connected, selectedServer, fullHei
   const terminalHeight = fullHeight ? "calc(100vh - 200px)" : "h-96"
 
   return (
-    <div className="bg-black overflow-hidden">
+    <div className="bg-black min-w-max auto-fit">
       {/* Compact Terminal Header */}
       <div className="bg-gray-900 px-3 py-2 border-b border-gray-700 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -122,8 +122,8 @@ export function TerminalLogs({ logs, loading, connected, selectedServer, fullHei
       </div>
 
       {/* Terminal Content - Full Height with Horizontal Scroll */}
-      <ScrollArea className={terminalHeight}>
-        <div ref={scrollRef} className="p-2 sm:p-3 font-mono text-xs">
+      <ScrollArea className={`${terminalHeight}`}>
+        <div ref={scrollRef} className="p-2 sm:p-3 font-mono text-xs min-w-max">
           {logs.length === 0 ? (
             <div className="text-gray-500 text-center py-8">
               <Terminal className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 opacity-50" />
@@ -135,7 +135,7 @@ export function TerminalLogs({ logs, loading, connected, selectedServer, fullHei
               {logs.map((log) => (
                 <div key={`${log.id}-${log.timestamp}`} className="hover:bg-gray-900/50 px-1 sm:px-2 py-0.5 rounded">
                   {/* Single line log with horizontal scroll */}
-                  <div className="flex items-center gap-1 sm:gap-2 text-xs leading-tight overflow-x-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
+                  <div className="flex items-center gap-1 sm:gap-2 text-xs leading-tight overflow-x-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent min-w-max">
                     <span className="text-gray-500 text-xs shrink-0 w-16 sm:w-20">
                       {formatTimestamp(log.timestamp)}
                     </span>

@@ -2,6 +2,15 @@ from flask import request, jsonify, abort
 from datetime import timedelta
 from ..db import get_db, parse_iso8601, now_utc
 
+
+# /api/logs?server=server1
+# this endpoint retrieves logs for a specific server
+# it supports optional 'since', 'until', and 'limit' query parameters
+# 'since' and 'until' should be in ISO-8601 format
+# if 'since' is not provided, defaults to 15 minutes ago
+# if 'until' is not provided, defaults to now
+# 'limit' can be used to limit the number of results returned
+# returns a JSON array of log entries
 def get_logs():
     server = request.args.get("server")
     if not server:

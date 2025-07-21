@@ -24,7 +24,7 @@ export default function LogsDashboard() {
   const [selectedServer, setSelectedServer] = useState<string>("server1")
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
-  const FLASK_API_URL = "http://localhost:5000"
+  const FLASK_API_URL = "http://127.0.0.1:5000"
   const POLL_INTERVAL = 1000 // 1 second
 
   const fetchLogs = async (server: string, showLoading = true) => {
@@ -164,7 +164,9 @@ export default function LogsDashboard() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-2 sm:p-4">
+    <div className="max-w-full  bg-gray-900 text-white p-2 sm:p-4">
+      {/* <div className="fixed inset-0 h-screen max-w-full bg-gray-900 text-white p-2 sm:p-3 font-mono text-lg sm:text-base md:text-sm min-w-max"> */}
+      {/* // <div className="fixed inset-0 h-screen max-w-full bg-gray-900 text-white p-2 sm:p-3 font-mono font-vw min-w-max"> */}
       <div className="max-w-full mx-auto space-y-3">
         {/* Compact Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
@@ -238,7 +240,8 @@ export default function LogsDashboard() {
             </Card>
 
             {/* Full Height Terminal - No Header */}
-            <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden">
+            {/* h screen 80% */}
+            <div className="bg-gray-800 border border-gray-700 rounded-lg h-[70vh] overflow-auto">
               <TerminalLogs
                 logs={logs}
                 loading={loading}
